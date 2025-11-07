@@ -1,23 +1,22 @@
 using UnityEngine;
 
-// Habilidad especial que aprende la mascota.
+// Cosmic skills that can be learned by the pet.
 public class CosmicSkill : MonoBehaviour
 {
     // Private Attributes
-    private int powerLevel; // Nivel de poder
+    private int _powerLevel; 
 
     // Public Properties
     public string skillName; // Nombre de la habilidad
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Methods
+    private void Start()
     {
-        
+        _powerLevel = UnityEngine.Random.Range(10, 0); // Power level of the skill selected randomly between 1 and 10.
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Activate() // Public method to activate the skill.
     {
-        
+        print("Skill activated: " + skillName);
     }
 }

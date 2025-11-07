@@ -1,19 +1,21 @@
 using UnityEngine;
 
-// Esta es la clase que se introduce en el objeto y desde el cual se crean las instancias y se llaman los diferentes métodos.
+// Game mananing script.
 public class Manager : MonoBehaviour
 {
     // Public Properties
-    public bool feedPet = false;
-    public bool learnSkill = false;
-    public bool makeSound = false;
+    public AlienPet pet;
+    public CosmicSkill laserEyeSkill;
+    public CosmicSkill flySkill;
+    public AlienSound sound;
+    public bool feedPet = false; // Button to feed
+    public bool learnSkill = false; // Button to learn skills
+    public bool makeSound = false; // Button to make a sound.
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AlienPet pet = new AlienPet("Zorgo");
-        CosmicSkill laserEyes = new CosmicSkill("Laser Eyes", 5);
-        AlienSound squeak = new AlienSound("Space Squak", 2.5f);
+        print("Starting the game...");
     }
 
     // Update is called once per frame
@@ -28,13 +30,14 @@ public class Manager : MonoBehaviour
         if (learnSkill)
         {
             learnSkill = false;
-            pet.Learn(laserEyes);
+            pet.LearnSkill(laserEyeSkill);
+            pet.LearnSkill(flySkill);
         }
 
         if (makeSound)
         {
             makeSound = false;
-            pet.MakeSound(squeak);
+            pet.MakeSound(sound);
         }
     }
 }

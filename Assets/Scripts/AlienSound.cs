@@ -1,23 +1,21 @@
 using UnityEngine;
 
-// Sonidos alienígenas que la mascota puede emitir.
+// Alien sounds that can be emitted by the pet.
 public class AlienSound : MonoBehaviour
 {
     // Private Attributes
-    private float pitch; // Tono de frecuencia del sonido
+    private float _pitch; 
 
     // Public Properties
-    public string soundName; // Nombre del sonido
+    public string soundName; // Name of the sound.
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Methods
+    private void Start()
     {
-        
+        _pitch = UnityEngine.Random.Range(0.0f, 10.0f); // Frequency of the sound in the range of 0 and 10 Hz.
     }
-
-    // Update is called once per frame
-    void Update()
+    public void PlaySound() // Public method to play the sound.
     {
-        
+        print(soundName);
     }
 }
